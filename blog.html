@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BLOG</title>
+  </head>
+
+  <body>
+    <h2>BLOG</h2>
+    <a href="udemy.html">Back to home</a>
+    <div id="grand-parent">
+      Grand grand-parent
+      <div id="parent">
+        Parent
+        <div id="child">Child</div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("child").addEventListener(
+        "click",
+        function () {
+          console.log("child cliked");
+        },
+        true
+      );
+      document.getElementById("parent").addEventListener(
+        "click",
+        function () {
+          console.log("parent cliked");
+        },
+        true
+      );
+
+      document.getElementById("grand-parent").addEventListener(
+        "click",
+        function () {
+          console.log("grand parent cliked");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
