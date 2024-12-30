@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Event Delegation</title>
+  </head>
+  <body>
+    <div id="container">
+      <input type="text" name="email" data-uppercase />
+      <input type="text" name="username" />
+      <input type="text" name="pan" data-uppercase />
+    </div>
+    <script>
+      document
+        .getElementById("container")
+        .addEventListener("keyup", (event) => {
+          console.log(event.target.dataset.uppercase);
+          if (event.target.dataset.uppercase != undefined) {
+            event.target.value = event.target.value.toUpperCase();
+          }
+        });
+    </script>
+  </body>
+</html>
