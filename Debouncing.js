@@ -19,13 +19,13 @@ function getData() {
 }
 function debounce(func, delay) {
   let timer;
-  // return function () {
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    // func.apply(this, args);
-    func();
-  }, delay);
-  // };
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // func.apply(this, args);
+      func();
+    }, delay);
+  };
 }
 
 // If debounce function doesn't return any function then handleInputChange is undefined so it throws error
