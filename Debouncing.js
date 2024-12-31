@@ -14,16 +14,17 @@ const user = {
 user.sayHello("Hello");
 
 let cnt = 0;
-function getData() {
-  console.log("Fetching data", cnt++);
+function getData(argStr) {
+  console.log("Fetching data", cnt++, argStr);
 }
 function debounce(func, delay) {
   let timer;
-  return function () {
+  return function (...args) {
+    //collects all the args
     clearTimeout(timer);
     timer = setTimeout(() => {
       // func.apply(this, args);
-      func();
+      func(args); //calls the function with args and uses the args whenever required
     }, delay);
   };
 }
@@ -31,3 +32,4 @@ function debounce(func, delay) {
 // If debounce function doesn't return any function then handleInputChange is undefined so it throws error
 //When you comment out the return function() line in the debounce implementation, the debounce function no longer returns a new function for the event handler.
 const handleInputChange = debounce(getData, 3000);
+handleInputChange("Hehehe");
