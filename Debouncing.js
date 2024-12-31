@@ -12,3 +12,19 @@ const user = {
   },
 };
 user.sayHello("Hello");
+
+let cnt = 0;
+function getData() {
+  console.log("Fetching data", cnt++);
+}
+function debounce(func, delay) {
+  let timer;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // func.apply(this, args);
+      func();
+    }, delay);
+  };
+}
+const handleInputChange = debounce(getData, 3000);
